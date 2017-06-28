@@ -133,13 +133,37 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               // @remove-on-eject-begin
-              // TODO: consider separate config for production,
-              // e.g. to enable no-console and no-debugger only in production.
               baseConfig: {
-                extends: [require.resolve('eslint-config-airbnb')],
+                parser: require.resolve('babel-eslint'),
+                extends: [
+                  require.resolve('eslint-config-airbnb'),
+                  require.resolve('eslint-config-prettier'),
+                  require.resolve('eslint-config-prettier/flowtype'),
+                  require.resolve('eslint-config-prettier/react'),
+                  ],
+                env: {
+                  browser: true,
+                  commonjs: true,
+                  es6: true,
+                  jest: true,
+                  node: true,
+                },
+                parserOptions: {
+                  ecmaVersion: 6,
+                  sourceType: 'module',
+                  ecmaFeatures: {
+                    jsx: true,
+                    generators: true,
+                    experimentalObjectRestSpread: true,
+                  },
+                },
                 rules: {
                   'import/no-unresolved': 0,
                   strict: 0,
+                  'import/no-extraneous-dependencies': 0,
+                  'import/extensions': 0,
+                  'no-prototype-builtins': 0,
+                  'react/forbid-prop-types': 0,
                 },
               },
               ignore: false,

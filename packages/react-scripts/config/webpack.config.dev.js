@@ -163,6 +163,10 @@ module.exports = {
                 rules: {
                   'import/no-unresolved': 0,
                   strict: 0,
+                  'import/no-extraneous-dependencies': 0,
+                  'import/extensions': 0,
+                  'no-prototype-builtins': 0,
+                  'react/forbid-prop-types': 0,
                 },
               },
               ignore: false,
