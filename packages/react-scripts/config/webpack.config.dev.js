@@ -167,6 +167,7 @@ module.exports = {
                   'import/extensions': 0,
                   'no-prototype-builtins': 0,
                   'react/forbid-prop-types': 0,
+                  'react/jsx-filename-extension': 0,
                 },
               },
               ignore: false,
