@@ -138,7 +138,12 @@ module.exports = {
               // @remove-on-eject-begin
               baseConfig: {
                 parser: require.resolve('babel-eslint'),
-                extends: [require.resolve('eslint-config-airbnb')],
+                extends: [
+                  require.resolve('eslint-config-airbnb'),
+                  require.resolve('eslint-config-prettier'),
+                  require.resolve('eslint-config-prettier/flowtype'),
+                  require.resolve('eslint-config-prettier/react'),
+                  ],
                 env: {
                   browser: true,
                   commonjs: true,
