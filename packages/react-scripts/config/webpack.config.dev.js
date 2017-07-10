@@ -22,8 +22,6 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
-const appPackage = require(paths.appPackageJson);
-
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -33,13 +31,6 @@ const publicPath = '/';
 const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-
-const alias = !appPackage.alias
-  ? {}
-  : Object.keys(appPackage.alias).reduce((previous, current) => {
-      previous[current] = path.resolve(paths.appPath, appPackage.alias[current]);
-      return previous;
-    }, {});
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -107,7 +98,7 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
-    alias: Object.assign({}, alias, {
+    alias: {
       // @remove-on-eject-begin
       // Resolve Babel runtime relative to react-scripts.
       // It usually still works on npm 3 without this but it would be
@@ -120,7 +111,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-    }),
+      'src': paths.appSrc,
+    },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
       // This often causes confusion because we only process files within src/ with babel.
