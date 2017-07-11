@@ -1,5 +1,15 @@
 # Create React App [![Build Status](https://travis-ci.org/facebookincubator/create-react-app.svg?branch=master)](https://travis-ci.org/facebookincubator/create-react-app)
 
+## Changes added in this fork
+
+- added Absolvent's Verdaccio support
+- added hot reloading [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+- added alias `src` to `[project folder]\src`
+- added decorators support [babel-plugin-transform-decorators-legacy](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy)
+- added sass import in js support [sass-loader](https://github.com/webpack-contrib/sass-loader)
+- removed [postcss-flexbugs-fixes](https://github.com/luisrudge/postcss-flexbugs-fixes/issues/36)
+
+
 Create React apps with no build configuration.
 
 * [Getting Started](#getting-started) – How to create a new app.
