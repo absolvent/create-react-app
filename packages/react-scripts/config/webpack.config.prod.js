@@ -265,9 +265,6 @@ module.exports = {
               fallback: require.resolve('style-loader'),
               use: [
                 {
-                  loader: 'style-loader', // creates style nodes from JS strings
-                },
-                {
                   loader: 'css-loader', // translates CSS into CommonJS
                   options: {
                     sourceMap: true,
